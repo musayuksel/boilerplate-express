@@ -1,6 +1,8 @@
-var express = require("express");
-var app = express();
-
+const express = require("express");
+const app = express();
+app.get("/", (request, response) => {
+  response.send("Hello Express");
+});
 console.log("Hello World");
 
 module.exports = app;
