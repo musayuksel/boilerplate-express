@@ -42,7 +42,12 @@ app.get("/json", (req, res) => {
     : (message = message);
   res.json({ message: message });
 });
-
+// Get Query Parameter Input from the Client
+app.get("/name", (req, res) => {
+  const firstname = req.query.first;
+  const lastname = req.query.last;
+  res.send({ name: `${firstname} ${lastname}` });
+});
 // Get Route Parameter Input from the Client
 app.get("/:word/echo", (request, response) => {
   const word = request.params.word;
