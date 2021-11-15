@@ -1,3 +1,4 @@
+const { request } = require("express");
 const express = require("express");
 const app = express();
 require("dotenv").config();
@@ -42,4 +43,9 @@ app.get("/json", (req, res) => {
   res.json({ message: message });
 });
 
+// Get Route Parameter Input from the Client
+app.get("/:word/echo", (request, response) => {
+  const word = request.params.word;
+  response.send({ echo: word });
+});
 module.exports = app;
