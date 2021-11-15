@@ -51,6 +51,12 @@ app.get("/name", (req, res) => {
   const lastname = req.query.last;
   res.send({ name: `${firstname} ${lastname}` });
 });
+//Get Data from POST Requests
+app.post("/name", (req, res) => {
+  const firstname = req.body.first;
+  const lastname = req.body.last;
+  res.send({ name: `${firstname} ${lastname}` });
+});
 // Get Route Parameter Input from the Client
 app.get("/:word/echo", (request, response) => {
   const word = request.params.word;
