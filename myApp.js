@@ -15,6 +15,9 @@ app.get("/", (request, response) => {
     console.log("Error handler, >" + absolutePath);
   });
 });
-// console.log("Hello World");
+// Serve JSON on a Specific Route
+app.get("/json", (request, response) => {
+  response.json({ message: "Hello json" });
+});
 
 module.exports = app;
