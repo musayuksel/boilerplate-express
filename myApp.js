@@ -6,6 +6,12 @@ require("dotenv").config();
 //   response.send("Hello Express");
 // });
 
+app.use((req, res, next) => {
+  const string =
+    req.method + " " + req.path + " - " + req.ip;
+  console.log(string);
+  next();
+});
 // Serve Static Assets
 const absolutePath = __dirname + "/public";
 app.use("/public", express.static(absolutePath));
