@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 // Hello Express
 // app.get("/", (request, response) => {
 //   response.send("Hello Express");
@@ -15,9 +16,13 @@ app.get("/", (request, response) => {
     console.log("Error handler, >" + absolutePath);
   });
 });
-// Serve JSON on a Specific Route
-app.get("/json", (request, response) => {
-  response.json({ message: "Hello json" });
+// Serve JSON on a Specific Route && Use the .env FilePassed
+app.get("/json", (req, res) => {
+  let message = "Hello json";
+  process.env.MESSAGE_STYLE == "uppercase"
+    ? (message = message.toUpperCase())
+    : (message = message);
+  res.json({ message: message });
 });
 
 module.exports = app;
